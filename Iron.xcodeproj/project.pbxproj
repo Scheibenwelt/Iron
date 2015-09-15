@@ -12,6 +12,7 @@
 		8C5C5CA91BA850BF00D0A0F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA71BA850BF00D0A0F1 /* Main.storyboard */; };
 		8C5C5CAB1BA850BF00D0A0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CAA1BA850BF00D0A0F1 /* Assets.xcassets */; };
 		8C5C5CAE1BA850BF00D0A0F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CAC1BA850BF00D0A0F1 /* LaunchScreen.storyboard */; };
+		8C5C5CB81BA854A000D0A0F1 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CB71BA854A000D0A0F1 /* Shaders.metal */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8C5C5CAA1BA850BF00D0A0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5C5CAD1BA850BF00D0A0F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C5C5CAF1BA850BF00D0A0F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C5C5CB71BA854A000D0A0F1 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				8C5C5CA31BA850BF00D0A0F1 /* AppDelegate.swift */,
 				8C5C5CA51BA850BF00D0A0F1 /* ViewController.swift */,
+				8C5C5CB71BA854A000D0A0F1 /* Shaders.metal */,
 				8C5C5CA71BA850BF00D0A0F1 /* Main.storyboard */,
 				8C5C5CAA1BA850BF00D0A0F1 /* Assets.xcassets */,
 				8C5C5CAC1BA850BF00D0A0F1 /* LaunchScreen.storyboard */,
@@ -134,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5C5CB81BA854A000D0A0F1 /* Shaders.metal in Sources */,
 				8C5C5CA61BA850BF00D0A0F1 /* ViewController.swift in Sources */,
 				8C5C5CA41BA850BF00D0A0F1 /* AppDelegate.swift in Sources */,
 			);
