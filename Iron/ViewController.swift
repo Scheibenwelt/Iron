@@ -8,7 +8,8 @@
 
 import UIKit
 import Metal
-import QuartzCore
+import QuartzCore.CAMetalLayer
+import GLKit
 
 class ViewController: UIViewController {
     lazy var device: MTLDevice = {
@@ -26,15 +27,6 @@ class ViewController: UIViewController {
 
         return metalLayer
     }()
-    lazy var vertexBuffer: MTLBuffer = {
-        let vertexData: [Float] = [
-            0.0,   1.0, 0.0,
-            -1.0, -1.0, 0.0,
-            1.0,  -1.0, 0.0
-        ]
-        let dataSize = vertexData.count * sizeofValue(vertexData[0])
-        return self.device.newBufferWithBytes(vertexData, length: dataSize, options: [])
-    }()
     lazy var pipelineState: MTLRenderPipelineState = {
         guard let defaultLibrary = self.device.newDefaultLibrary() else { fatalError("failed to new default library") }
 
@@ -51,30 +43,38 @@ class ViewController: UIViewController {
         }
     }()
     lazy var commandQueue: MTLCommandQueue = self.device.newCommandQueue()
+    lazy var objectToDraw: Node = {
+        var node = Cube(device: self.device)
+        node.position.x = 0
+        node.position.y = 0
+        node.position.z = -2
+        node.rotation.z = Float(45 * M_PI / 180)
+        node.scale.x = 0.5
+        node.scale.y = 0.5
+        node.scale.z = 0.5
+        return node
+    }()
+    lazy var projectionMatrix: GLKMatrix4 = {
+        return GLKMatrix4MakePerspective(Float(85 * M_PI / 180) , Float(self.view.bounds.width / self.view.bounds.height), 0.01, 100.0)
+    }()
+    let worldModelMatrix = GLKMatrix4MakeTranslation(0, 0, -4)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let timer = CADisplayLink(target: self, selector: "render")
+        let timer = CADisplayLink(target: self, selector: "render:")
         timer.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
     }
 
-    @objc private func render() {
-        guard let drawable = metalLayer.nextDrawable() else { fatalError("invalid drawable") }
-        let renderPassDescriptor = MTLRenderPassDescriptor()
-        renderPassDescriptor.colorAttachments[0].texture = drawable.texture
-        renderPassDescriptor.colorAttachments[0].loadAction = .Clear
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
+    @objc private func render(displayLink: CADisplayLink) {
+        guard let drawable = metalLayer.nextDrawable() else {
+            debugPrint("invalid drawable")
+            return
+        }
 
-        let commandBuffer = commandQueue.commandBuffer()
-        let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
-        renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
-        renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
-        renderEncoder.endEncoding()
+        objectToDraw.time = displayLink.timestamp
 
-        commandBuffer.presentDrawable(drawable)
-        commandBuffer.commit()
+        objectToDraw.render(commandQueue, pipelineState: pipelineState, drawable: drawable, parentModelViewMatrix: worldModelMatrix, projectionMatrix: projectionMatrix)
     }
 }
 

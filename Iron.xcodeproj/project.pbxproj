@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C01FE3E1BAD921B003D6E95 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3D1BAD921B003D6E95 /* Vertex.swift */; settings = {ASSET_TAGS = (); }; };
+		8C01FE401BAD927A003D6E95 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3F1BAD927A003D6E95 /* Node.swift */; settings = {ASSET_TAGS = (); }; };
+		8C01FE421BAD9625003D6E95 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE411BAD9625003D6E95 /* Triangle.swift */; settings = {ASSET_TAGS = (); }; };
+		8C01FE441BAD99F0003D6E95 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE431BAD99F0003D6E95 /* Cube.swift */; settings = {ASSET_TAGS = (); }; };
 		8C5C5CA41BA850BF00D0A0F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA31BA850BF00D0A0F1 /* AppDelegate.swift */; };
 		8C5C5CA61BA850BF00D0A0F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA51BA850BF00D0A0F1 /* ViewController.swift */; };
 		8C5C5CA91BA850BF00D0A0F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA71BA850BF00D0A0F1 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C01FE3D1BAD921B003D6E95 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		8C01FE3F1BAD927A003D6E95 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		8C01FE411BAD9625003D6E95 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		8C01FE431BAD99F0003D6E95 /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		8C5C5CA01BA850BF00D0A0F1 /* Iron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5C5CA31BA850BF00D0A0F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C5C5CA51BA850BF00D0A0F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,10 @@
 				8C5C5CAA1BA850BF00D0A0F1 /* Assets.xcassets */,
 				8C5C5CAC1BA850BF00D0A0F1 /* LaunchScreen.storyboard */,
 				8C5C5CAF1BA850BF00D0A0F1 /* Info.plist */,
+				8C01FE3D1BAD921B003D6E95 /* Vertex.swift */,
+				8C01FE3F1BAD927A003D6E95 /* Node.swift */,
+				8C01FE411BAD9625003D6E95 /* Triangle.swift */,
+				8C01FE431BAD99F0003D6E95 /* Cube.swift */,
 			);
 			path = Iron;
 			sourceTree = "<group>";
@@ -138,7 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C5C5CB81BA854A000D0A0F1 /* Shaders.metal in Sources */,
+				8C01FE401BAD927A003D6E95 /* Node.swift in Sources */,
+				8C01FE3E1BAD921B003D6E95 /* Vertex.swift in Sources */,
+				8C01FE421BAD9625003D6E95 /* Triangle.swift in Sources */,
 				8C5C5CA61BA850BF00D0A0F1 /* ViewController.swift in Sources */,
+				8C01FE441BAD99F0003D6E95 /* Cube.swift in Sources */,
 				8C5C5CA41BA850BF00D0A0F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +305,7 @@
 				8C5C5CB41BA850BF00D0A0F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
