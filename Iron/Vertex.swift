@@ -17,7 +17,7 @@ struct Vertex {
     }
 }
 
-extension Vertex: ArrayLiteralConvertible {
+extension Vertex: ExpressibleByArrayLiteral {
     init(arrayLiteral elements: Float...) {
         guard elements.count == 7 else { fatalError("invalid Vertex data") }
 

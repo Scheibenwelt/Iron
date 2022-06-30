@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C01FE3E1BAD921B003D6E95 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3D1BAD921B003D6E95 /* Vertex.swift */; settings = {ASSET_TAGS = (); }; };
-		8C01FE401BAD927A003D6E95 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3F1BAD927A003D6E95 /* Node.swift */; settings = {ASSET_TAGS = (); }; };
-		8C01FE421BAD9625003D6E95 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE411BAD9625003D6E95 /* Triangle.swift */; settings = {ASSET_TAGS = (); }; };
-		8C01FE441BAD99F0003D6E95 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE431BAD99F0003D6E95 /* Cube.swift */; settings = {ASSET_TAGS = (); }; };
+		8C01FE3E1BAD921B003D6E95 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3D1BAD921B003D6E95 /* Vertex.swift */; };
+		8C01FE401BAD927A003D6E95 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE3F1BAD927A003D6E95 /* Node.swift */; };
+		8C01FE421BAD9625003D6E95 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE411BAD9625003D6E95 /* Triangle.swift */; };
+		8C01FE441BAD99F0003D6E95 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01FE431BAD99F0003D6E95 /* Cube.swift */; };
 		8C5C5CA41BA850BF00D0A0F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA31BA850BF00D0A0F1 /* AppDelegate.swift */; };
 		8C5C5CA61BA850BF00D0A0F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA51BA850BF00D0A0F1 /* ViewController.swift */; };
 		8C5C5CA91BA850BF00D0A0F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CA71BA850BF00D0A0F1 /* Main.storyboard */; };
 		8C5C5CAB1BA850BF00D0A0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CAA1BA850BF00D0A0F1 /* Assets.xcassets */; };
 		8C5C5CAE1BA850BF00D0A0F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5C5CAC1BA850BF00D0A0F1 /* LaunchScreen.storyboard */; };
-		8C5C5CB81BA854A000D0A0F1 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CB71BA854A000D0A0F1 /* Shaders.metal */; settings = {ASSET_TAGS = (); }; };
+		8C5C5CB81BA854A000D0A0F1 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C5CB71BA854A000D0A0F1 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +105,7 @@
 		8C5C5C981BA850BF00D0A0F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = rubyist.today;
 				TargetAttributes = {
 					8C5C5C9F1BA850BF00D0A0F1 = {
@@ -115,7 +115,7 @@
 			};
 			buildConfigurationList = 8C5C5C9B1BA850BF00D0A0F1 /* Build configuration list for PBXProject "Iron" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -185,17 +185,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -217,11 +228,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -230,17 +242,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -256,9 +279,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

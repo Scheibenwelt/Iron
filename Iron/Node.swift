@@ -33,7 +33,7 @@ class Node {
 
     var time: CFTimeInterval = 0
 
-    class func timeModifier(time: CFTimeInterval)(_ matrix: GLKMatrix4) -> GLKMatrix4 {
+    class func timeModifier(_ time: CFTimeInterval, _ matrix: GLKMatrix4) -> GLKMatrix4 {
         return matrix
     }
 
@@ -49,42 +49,47 @@ class Node {
     }
 
     var modelMatrixNow: GLKMatrix4 {
-        return self.dynamicType.timeModifier(time)(modelMatrix)
+        return Self.timeModifier(time, modelMatrix)
     }
 
     init(name: String, vertices: Array<Vertex>, device: MTLDevice) {
-        var vertexData = vertices.map { $0.floatBuffer }.reduce([], combine: +)
+        var vertexData = vertices.map { $0.floatBuffer }.reduce([], +)
 
         self.name = name
         self.vertexCount = vertices.count
         self.device = device
-        self.vertexBuffer = device.newBufferWithBytes(&vertexData, length: vertexData.count * sizeofValue(vertexData[0]), options: [])
+        self.vertexBuffer = device.makeBuffer(bytes: &vertexData, length: vertexData.count * MemoryLayout.size(ofValue: vertexData[0]), options: [])!
     }
 
     func render(commandQueue: MTLCommandQueue, pipelineState: MTLRenderPipelineState, drawable: CAMetalDrawable, parentModelViewMatrix: GLKMatrix4, projectionMatrix: GLKMatrix4, clearColor: MTLClearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)) {
         let renderPassDescriptor = MTLRenderPassDescriptor()
         renderPassDescriptor.colorAttachments[0].texture = drawable.texture
-        renderPassDescriptor.colorAttachments[0].loadAction = .Clear
+        renderPassDescriptor.colorAttachments[0].loadAction = .clear
         renderPassDescriptor.colorAttachments[0].clearColor = clearColor
-        renderPassDescriptor.colorAttachments[0].storeAction = .Store
+        renderPassDescriptor.colorAttachments[0].storeAction = .store
 
-        let commandBuffer = commandQueue.commandBuffer()
+        guard let commandBuffer = commandQueue.makeCommandBuffer() else {
+            return
+        }
 
-        let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+        guard let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
+            return
+        }
+
         renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setCullMode(.Front)
+        renderEncoder.setCullMode(.front)
 
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
 
         let modelMatrix = GLKMatrix4Multiply(parentModelViewMatrix, modelMatrixNow)
         var modalMatrixRaw = modelMatrix.raw + projectionMatrix.raw
-        let uniformBuffer = device.newBufferWithBytes(&modalMatrixRaw, length: modalMatrixRaw.count * sizeofValue(modalMatrixRaw[0]), options: [])
-        renderEncoder.setVertexBuffer(uniformBuffer, offset: 0, atIndex: 1)
+        let uniformBuffer = device.makeBuffer(bytes: &modalMatrixRaw, length: modalMatrixRaw.count * MemoryLayout.size(ofValue: modalMatrixRaw[0]), options: [])
+        renderEncoder.setVertexBuffer(uniformBuffer, offset: 0, index: 1)
 
-        renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: vertexCount, instanceCount: vertexCount / 3)
+        renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertexCount, instanceCount: vertexCount / 3)
         renderEncoder.endEncoding()
 
-        commandBuffer.presentDrawable(drawable)
+        commandBuffer.present(drawable)
         commandBuffer.commit()
     }
 }

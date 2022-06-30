@@ -32,12 +32,12 @@ class Cube: Node {
         ], device: device)
     }
 
-    override class func timeModifier(time: CFTimeInterval)(_ matrix: GLKMatrix4) -> GLKMatrix4 {
+    override class func timeModifier(_ time: CFTimeInterval, _ matrix: GLKMatrix4) -> GLKMatrix4 {
         var matrix = matrix
 
         let secsPerMove: Float = 6
-        matrix = GLKMatrix4RotateX(matrix, sin(Float(time) * 2.0 * Float(M_PI) / secsPerMove))
-        matrix = GLKMatrix4RotateY(matrix, sin(Float(time) * 2.0 * Float(M_PI) / secsPerMove))
+        matrix = GLKMatrix4RotateX(matrix, sin(Float(time) * 2.0 * .pi / secsPerMove))
+        matrix = GLKMatrix4RotateY(matrix, sin(Float(time) * 2.0 * .pi / secsPerMove))
 
         return matrix
     }
